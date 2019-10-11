@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vue.js App</title>
+
+  <meta name="description" content="Client-side app illustrating two-way data binding with Vue.js">
+  <meta name="author" content="Denise Case">
+
+  <!-- get current Bootstrap Material Design styles from https://mdbootstrap.com/md-bootstrap-cdn/ -->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+
+  <!-- required for sticky footer -->
+  <style>
+    body,
+    .sticky-footer-wrapper {
+      min-height: 100vh;
+    }
+  </style>
+
+</head>
+
+<body class="d-flex flex-column sticky-footer-wrapper">
+  <main class="container mt-5 flex-fill" id="vue-app">
+
+    <!--Container has rows - first row -->
+    <div class="row">
+
+      <!--Rows have columns - column 1 -->
+      <div class="col-md-4 mb-4">
+
+        <h2>Course Population Calculator</h2>
+
+        <fieldset class="mt-4">
+          <label for="numberStudents">Enter number of students (1 to 100):</label>
+          <input v-model="numberStudents" id="numberStudents" type="number" min="1" max="100">
+          <span id="firstWarning" class="text-danger"></span>
+        </fieldset>
+        <p class="mt-4">{{result}}</p>
+
+      </div>
+      <!--end column 1-->
+
+    </div>
+    <!-- end row 1 -->
+
+  </main>
+  <!-- Vue.js must be added before our custom code -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+
+  <script>
+
+    console.log('Declare testable functions.....................')
+
+    const add = (x, y) => { return x + y }
+
+    console.log('Specify Vue components .......................')
+
+    new Vue({
+      el: '#vue-app',
+      data: {
+        numberStudents: 3,
+        numberStaff: 2
+      },
+      computed: {
+        result() {
+          const i = parseInt(this.numberStudents)
+          return 'Your course population is ' + add(i, 2) + '.'
+        }
+      }
+    })
+
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+
+</body>
+
+</html>
