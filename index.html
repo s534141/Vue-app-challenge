@@ -5,10 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Vue.js App</title>
-
-  <meta name="description" content="Client-side app illustrating two-way data binding with Vue.js">
-  <meta name="author" content="Denise Case">
+  <title>Vue Challenge</title>
 
   <!-- get current Bootstrap Material Design styles from https://mdbootstrap.com/md-bootstrap-cdn/ -->
 
@@ -19,17 +16,9 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
 
-  <!-- required for sticky footer -->
-  <style>
-    body,
-    .sticky-footer-wrapper {
-      min-height: 100vh;
-    }
-  </style>
-
 </head>
 
-<body class="d-flex flex-column sticky-footer-wrapper">
+<body class="d-flex flex-column">
   <main class="container mt-5 flex-fill" id="vue-app">
 
     <!--Container has rows - first row -->
@@ -59,17 +48,12 @@
 
   <script>
 
-    console.log('Declare testable functions.....................')
-
     const add = (x, y) => { return x + y }
-
-    console.log('Specify Vue components .......................')
 
     new Vue({
       el: '#vue-app',
       data: {
-        numberStudents: 3,
-        numberStaff: 2
+        numberStudents: 3
       },
       computed: {
         result() {
